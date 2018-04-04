@@ -19,7 +19,7 @@ class Wallet
 
     public function __construct($rpcProtocol = 'http://', $rpcUser, $rpcPassword, $rpcHost, $rpcPort)
     {
-        $this->walletServer = $protocol . $rpcUser . ':' . $rpcPassword . '@' . $rpcHost . ':' . $rpcPort;
+        $this->walletServer = $rpcProtocol . $rpcUser . ':' . $rpcPassword . '@' . $rpcHost . ':' . $rpcPort;
         $this->jsonRpc = new jsonRPCClient($this->walletServer);
     }
 
