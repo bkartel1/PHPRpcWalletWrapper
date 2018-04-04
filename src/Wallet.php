@@ -63,7 +63,7 @@ class Wallet
      * @param int $minconf
      * @return array
      */
-    public function getBalance($account, int $minconf = 6)
+    public function getBalance($account = '', int $minconf = 6)
     {
         return $this->jsonRpc->getbalance($account, $minconf);
     }
