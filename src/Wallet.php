@@ -65,7 +65,8 @@ class Wallet
      */
     public function getBalance($account = '', int $minconf = 6)
     {
-        return $this->jsonRpc->getbalance($account, $minconf);
+        if (!empty($account)) return $this->jsonRpc->getbalance($account, $minconf);
+        else return $this->jsonRpc->getbalance();
     }
 
     /**
