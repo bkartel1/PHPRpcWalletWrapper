@@ -122,14 +122,15 @@ class jsonRPCClient {
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
+		
 		$response = json_decode(curl_exec($ch),true);
+		curl_close($ch);
 
 		if (!$this->notification) 
 		{
 			if ($response['id'] != $currentId) 
 			{
-				throw new Exception('Incorrect response id (request id: '.$currentId.', response id: '.$response['id'].')');
+				echo 'Incorrect response id (request id: '.$currentId.', response id: '.$response['id'].')';
 			}			
 			return $response;
 			
